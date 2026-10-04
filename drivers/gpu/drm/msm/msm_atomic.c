@@ -73,11 +73,21 @@ EXPORT_SYMBOL(msm_drm_unregister_client);
  * @v: notifier data, inculde display id and display blank
  *     event(unblank or power down).
  */
+
+#ifndef CONFIG_MACH_OPLUS_SM7150
 static int msm_drm_notifier_call_chain(unsigned long val, void *v)
 {
 	return blocking_notifier_call_chain(&msm_drm_notifier_list, val,
 					    v);
 }
+#else
+int msm_drm_notifier_call_chain(unsigned long val, void *v)
+{
+	return blocking_notifier_call_chain(&msm_drm_notifier_list, val,
+					    v);
+}
+EXPORT_SYMBOL(msm_drm_notifier_call_chain);
+#endif
 
 /* block until specified crtcs are no longer pending update, and
  * atomically mark them as pending update
