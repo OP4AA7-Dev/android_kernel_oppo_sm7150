@@ -836,7 +836,15 @@ static int qpnp_flash_led_calc_max_current(struct qpnp_flash_led *led,
 	/* RESISTANCE = esr_uohm + rslow_uohm */
 	rc = get_property_from_fg(led, POWER_SUPPLY_PROP_RESISTANCE,
 			&rbatt_uohm);
+#ifdef CONFIG_MACH_OPLUS_SM7150
+	if (rc == -ENODEV) {
+		pr_warn_ratelimited("no bms psy, using max flash current\n");
+		*max_current = FLASH_LED_MAX_TOTAL_CURRENT_MA;
+		return 0;
+	} else if (rc < 0) {
+#else
 	if (rc < 0) {
+#endif
 		pr_err("bms psy does not support resistance, rc=%d\n", rc);
 		return rc;
 	}
