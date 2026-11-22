@@ -21,3 +21,4 @@ obj-$(CONFIG_NFC_MAX32560)	+= max32560/
 obj-$(CONFIG_NXP_NFC_I2C)	+= sn-nci/
 obj-$(CONFIG_NFC_NQ)		+= nq-nci.o
 obj-$(CONFIG_NTAG_NQ)		+= nq-ntag.o
+obj-$(CONFIG_OPLUS_NFC)		+= oplus_nfc/

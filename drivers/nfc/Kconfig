@@ -78,3 +78,5 @@ config NTAG_NQ
 
 source "drivers/nfc/max32560/Kconfig"
 source "drivers/nfc/sn-nci/Kconfig"
+
+source "drivers/nfc/oplus_nfc/Kconfig"

@@ -37,6 +37,7 @@
 #define BYTE				(0x8)
 #define NCI_IDENTIFIER			(0x10)
 
+#ifndef CONFIG_OPLUS_NFC
 #define DEV_COUNT	1
 #define DEVICE_NAME	"nq-nci"
 #define CLASS_NAME	"nqx"
@@ -64,6 +65,7 @@
 #define NFCC_HW_ROM_VER_OFFSET		3
 #define NFCC_HW_MAJOR_NO_OFFSET		2
 #define NFCC_HW_MINOR_NO_OFFSET		1
+#endif /* CONFIG_OPLUS_NFC */
 
 enum nfcc_initial_core_reset_ntf {
 	TIMEDOUT_INITIAL_CORE_RESET_NTF = 0, /* 0*/
