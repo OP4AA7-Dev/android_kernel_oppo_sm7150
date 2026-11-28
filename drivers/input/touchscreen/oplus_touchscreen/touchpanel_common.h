@@ -81,6 +81,12 @@
 #define FINGERPRINT_DOWN_DETECT 0X0f
 #define FINGERPRINT_UP_DETECT 0X1f
 
+/*
+ * Screen-off gestures other than double tap are reported as
+ * KEY_GESTURE_START + gesture_type for the vendor.lineage.touch HAL.
+ */
+#define KEY_GESTURE_START 246
+
 /* bit operation */
 #define SET_BIT(data, flag) ((data) |= (flag))
 #define CLR_BIT(data, flag) ((data) &= ~(flag))
